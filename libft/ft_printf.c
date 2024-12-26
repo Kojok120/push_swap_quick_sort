@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:24:56 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/07/14 14:55:34 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/26 11:41:22 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_print_str(const char **start, const char **format, int *n)
 {

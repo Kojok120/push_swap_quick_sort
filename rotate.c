@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 11:01:36 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/26 11:43:59 by kokamoto         ###   ########.fr       */
+/*   Created: 2024/12/26 11:49:30 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/26 11:50:26 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push(t_list **dest, t_list **src)
+void    rotate(t_list **stack)
 {
-    t_list *tmp;
+    t_list *last;
+    t_list *first;
     
-    if (!*src)
+    if (!*stack || !(*stack)->next)
         return;
-    tmp = *src;
-    *src = (*src)->next;
-    tmp->next = *dest;
-    *dest = tmp;
+    first = *stack;
+    last = ft_lstlast(*stack);
+    *stack = first->next;
+    first->next = NULL;
+    last->next = first;
 }
 
-void    pa(t_list **a, t_list **b)
+void    ra(t_list **a)
 {
-    push(a, b);
-    ft_printf("pa\n");
+    rotate(a);
+    ft_printf("ra\n");
 }
-void    pb(t_list **a, t_list **b)
+
+void    rb(t_list **b)
 {
-    push(b, a);
-    ft_printf("pb\n");
+    rotate(b);
+    ft_printf("rb\n");
 }

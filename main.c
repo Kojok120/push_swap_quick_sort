@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 11:01:36 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/26 11:43:59 by kokamoto         ###   ########.fr       */
+/*   Created: 2024/12/26 11:06:13 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/26 11:08:07 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 
-void    push(t_list **dest, t_list **src)
-{
-    t_list *tmp;
-    
-    if (!*src)
-        return;
-    tmp = *src;
-    *src = (*src)->next;
-    tmp->next = *dest;
-    *dest = tmp;
-}
 
-void    pa(t_list **a, t_list **b)
+int main (int argc, char *argv[])
 {
-    push(a, b);
-    ft_printf("pa\n");
-}
-void    pb(t_list **a, t_list **b)
-{
-    push(b, a);
-    ft_printf("pb\n");
+    //引数が1つでもINT_MAX以上の場合はエラー出力
+    if (argc == 1)
+    {
+        ft_putstr_fd("Error\n", 2);
+        return (0);
+    }
+    return (0);
 }
