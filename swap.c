@@ -6,7 +6,7 @@
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:01:48 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 10:23:01 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/29 11:25:39 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	ss(t_list **a, t_list **b)
 {
 	swap(a);
 	swap(b);
-	printf("ss\n");
+	ft_printf("ss\n");
 }
