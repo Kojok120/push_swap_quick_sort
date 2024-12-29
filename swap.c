@@ -6,38 +6,41 @@
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:01:48 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/26 11:48:53 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/29 10:23:01 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_list **stack)
+void	swap(t_list **stack)
 {
-    t_list *first;
-    t_list *second;
-    
-    if (!*stack || !(*stack)->next)
-        return;
-    first = *stack;
-    second = (*stack)->next;
-    first->next = second->next;
-    second->next = first;
-    *stack = second;
+	t_list	*first;
+	t_list	*second;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	second = (*stack)->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 }
-void    sa(t_list **a)
+
+void	sa(t_list **a)
 {
-    swap(a);
-    ft_printf("sa\n");
+	swap(a);
+	ft_printf("sa\n");
 }
-void    sb(t_list **b)
+
+void	sb(t_list **b)
 {
-    swap(b);
-    ft_printf("sb\n");
+	swap(b);
+	ft_printf("sb\n");
 }
-void    ss(t_list **a, t_list **b)
+
+void	ss(t_list **a, t_list **b)
 {
-    swap(a);
-    swap(b);
-    printf("ss\n");
+	swap(a);
+	swap(b);
+	printf("ss\n");
 }

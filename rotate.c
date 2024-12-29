@@ -6,34 +6,34 @@
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:49:30 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/26 11:50:26 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/29 10:23:24 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
-    t_list *last;
-    t_list *first;
-    
-    if (!*stack || !(*stack)->next)
-        return;
-    first = *stack;
-    last = ft_lstlast(*stack);
-    *stack = first->next;
-    first->next = NULL;
-    last->next = first;
+	t_list	*last;
+	t_list	*first;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	last = ft_lstlast(*stack);
+	*stack = first->next;
+	first->next = NULL;
+	last->next = first;
 }
 
-void    ra(t_list **a)
+void	ra(t_list **a)
 {
-    rotate(a);
-    ft_printf("ra\n");
+	rotate(a);
+	ft_printf("ra\n");
 }
 
-void    rb(t_list **b)
+void	rb(t_list **b)
 {
-    rotate(b);
-    ft_printf("rb\n");
+	rotate(b);
+	ft_printf("rb\n");
 }
