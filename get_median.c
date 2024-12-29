@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_median_utils.c                                 :+:      :+:    :+:   */
+/*   get_median.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 10:41:50 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 10:42:08 by kokamoto         ###   ########.fr       */
+/*   Created: 2024/12/29 10:39:26 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/29 11:31:19 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// 配列を作成してリストの値をコピー
-static int    *create_array(t_list *stack, int size)
+int    *create_array(t_list *stack, int size)
 {
     int    *array;
     int    i;
@@ -30,7 +29,7 @@ static int    *create_array(t_list *stack, int size)
 }
 
 // 配列をソート
-static void    sort_array(int *array, int size)
+void    sort_array(int *array, int size)
 {
     int    i;
     int    j;
@@ -50,4 +49,19 @@ static void    sort_array(int *array, int size)
             }
         }
     }
+}
+
+int    get_median(t_list *stack)
+{
+    int    *array;
+    int    size;
+    int    median;
+
+    size = ft_lstsize(stack);
+    if (!(array = create_array(stack, size)))
+        return (0);
+    sort_array(array, size);
+    median = array[size / 2];
+    free(array);
+    return (median);
 }

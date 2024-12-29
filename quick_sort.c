@@ -5,26 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 10:39:26 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 10:43:31 by kokamoto         ###   ########.fr       */
+/*   Created: 2024/12/29 10:40:30 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/29 11:31:38 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int    get_median(t_list *stack)
+// スタックBの最大値の位置を探す
+int    find_max_pos(t_list *b)
 {
-    int    *array;
-    int    size;
-    int    median;
+    t_list    *current;
+    int        max;
+    int        max_pos;
+    int        pos;
 
-    size = ft_lstsize(stack);
-    if (!(array = create_array(stack, size)))
-        return (0);
-    sort_array(array, size);
-    median = array[size / 2];
-    free(array);
-    return (median);
+    max = INT_MIN;
+    max_pos = 0;
+    pos = 0;
+    current = b;
+    while (current)
+    {
+        if (*(int *)current->content > max)
+        {
+            max = *(int *)current->content;
+            max_pos = pos;
+        }
+        pos++;
+        current = current->next;
+    }
+    return (max_pos);
+}
+
+// 最大値を上に持ってくる
+void    move_max_to_top(t_list **b, int max_pos)
+{
+    int    size;
+
+    size = ft_lstsize(*b);
+    if (max_pos <= size / 2)
+        while (max_pos--)
+            rb(b);
+    else
+        while (max_pos++ < size)
+            rrb(b);
+}
+
+// スタックBの要素をAに戻す
+void    push_back_to_a(t_list **a, t_list **b, int pushed)
+{
+    int    max_pos;
+
+    while (pushed--)
+    {
+        max_pos = find_max_pos(*b);
+        move_max_to_top(b, max_pos);
+        pa(a, b);
+    }
 }
 
 void    quick_sort(t_list **a, t_list **b)
