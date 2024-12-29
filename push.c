@@ -6,7 +6,7 @@
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:01:36 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 10:24:16 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/29 12:01:16 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(t_list **dest, t_list **src)
 {
 	t_list	*tmp;
 
-	if (!*src)
+	if (!src || !*src)
 		return ;
 	tmp = *src;
 	*src = (*src)->next;
