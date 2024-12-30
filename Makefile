@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+         #
+#    By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/29 10:26:56 by kokamoto          #+#    #+#              #
-#    Updated: 2024/12/30 19:27:26 by kokamoto         ###   ########.fr        #
+#    Updated: 2024/12/31 02:17:13 by kokamoto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 SRCS = main.c \
 	error.c \
@@ -22,7 +22,8 @@ SRCS = main.c \
 	reverse_rotate.c \
 	sort_small.c \
 	quick_sort.c \
-	get_median.c
+	assign_sort_index.c \
+	get_median.c \
 
 LIBFT_SRCS = libft/ft_hexlen.c \
 	libft/ft_atoi.c \
@@ -37,6 +38,7 @@ LIBFT_SRCS = libft/ft_hexlen.c \
 	libft/ft_printf.c \
 	libft/ft_putpointer_fd.c \
 	libft/ft_lstadd_front.c \
+	libft/ft_lstadd_back.c \
 	libft/ft_putunsignedint_fd.c \
 	libft/ft_putchar_fd.c \
 	libft/ft_numlen.c \

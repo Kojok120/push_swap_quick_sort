@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_median.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 10:39:26 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/30 21:17:30 by kokamoto         ###   ########.fr       */
+/*   Created: 2024/12/31 01:54:49 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/31 01:59:34 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    *create_array(t_list *stack, int size)
+
+int    *create_array_median(t_list *stack, int size)
 {
     int    *array;
     int    i;
@@ -22,14 +23,14 @@ int    *create_array(t_list *stack, int size)
     i = 0;
     while (stack)
     {
-        array[i++] = *(int *)stack->content;
+        array[i++] = *(int *)stack->sort_index;
         stack = stack->next;
     }
     return (array);
 }
 
 // 配列をソート
-void    sort_array(int *array, int size)
+void    sort_array_median(int *array, int size)
 {
     int    i;
     int    j;
@@ -58,9 +59,9 @@ int    get_median(t_list *stack)
     int    median;
 
     size = ft_lstsize(stack);
-    if (!(array = create_array(stack, size)))
+    if (!(array = create_array_median(stack, size)))
         return (0);
-    sort_array(array, size);
+    sort_array_index(array, size);
     median = array[size / 2];
     free(array);
     return (median);

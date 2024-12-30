@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:06:13 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/30 19:37:08 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:19:55 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	main(int argc, char *argv[])
 	t_list	*b;
 	long	num;
 	int		*content;
+    int    *array;
 
 	if (argc < 2)
 		return (0);
@@ -73,8 +74,12 @@ int	main(int argc, char *argv[])
 		if (!content)
 			error_exit(&a, &b);
 		*content = num;
-		ft_lstadd_front(&a, ft_lstnew(content));
+		ft_lstadd_front(&a, ft_lstnew(content)); //lstadd_backが正しい気がする。
 	}
+    if (!(array = create_array_index(a, ft_lstsize(a))))
+        return (0);
+    sort_array_index(array, ft_lstsize(a));    
+    assign_sort_index(array, a, ft_lstsize(a));
 	if (!is_sorted(a))
 		sort(&a, &b);
 	ft_lstclear(&a, free);

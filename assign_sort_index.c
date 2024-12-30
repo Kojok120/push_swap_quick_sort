@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   assign_sort_index.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/29 10:39:26 by kokamoto          #+#    #+#             */
+/*   Updated: 2024/12/31 01:54:24 by kokamoto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+int    *create_array_index(t_list *stack, int size)
+{
+    int    *array;
+    int    i;
+
+    if (!(array = (int *)malloc(sizeof(int) * size)))
+        return (NULL);
+    i = 0;
+    while (stack)
+    {
+        array[i++] = *(int *)stack->content;
+        stack = stack->next;
+    }
+    return (array);
+}
+
+void    sort_array_index(int *array, int size)
+{
+    int    i;
+    int    j;
+    int    temp;
+
+    i = 0;
+    while (i < size - 1)
+    {
+        j = i + 1;
+        while (j < size)
+        {
+            if (array[i] > array[j])
+            {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void    assign_sort_index(int *sorted_array, t_list *stack, int size)
+{
+    int    i;
+
+    while (stack)
+    {
+        i = 0;
+        while (i < size)
+        {
+            if (*(int *)stack->content == sorted_array[i])
+            {
+                if (!(stack->sort_index = (int *)malloc(sizeof(int))))
+                    error_exit(&stack, NULL);
+                *stack->sort_index = i;
+                break ;
+            }
+            i++;
+        }
+        stack = stack->next;
+    }
+    // //一度確認する。
+    // while (stack)
+    // {
+    //     ft_printf("content: %d, sort_index: %d\n", *(int *)stack->content, *stack->sort_index);
+    //     stack = stack->next;
+    // }
+    
+}

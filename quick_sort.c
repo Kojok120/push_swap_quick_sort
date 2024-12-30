@@ -3,65 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 10:40:30 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/30 23:32:05 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:22:34 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_max_pos(t_list *b)
+int    find_max_pos(t_list *b)
 {
-	t_list	*current;
-	int		max;
-	int		max_pos;
-	int		pos;
+    t_list    *current;
+    int        max_index;
+    int        max_pos;
+    int        pos;
 
-	max = INT_MIN;
-	max_pos = 0;
-	pos = 0;
-	current = b;
-	while (current)
-	{
-		if (*(int *)current->content > max)
-		{
-			max = *(int *)current->content;
-			max_pos = pos;
-		}
-		pos++;
-		current = current->next;
-	}
-	return (max_pos);
+    max_index = -1;
+    max_pos = 0;
+    pos = 0;
+    current = b;
+    while (current)
+    {
+        if (*current->sort_index > max_index)
+        {
+            max_index = *current->sort_index;
+            max_pos = pos;
+        }
+        pos++;
+        current = current->next;
+    }
+    return (max_pos);
 }
 
-// 最大値を上に持ってくる
-void	move_max_to_top(t_list **b, int max_pos)
+void    move_max_to_top(t_list **b, int max_pos)
 {
-	int	size;
+    int    size;
 
-	size = ft_lstsize(*b);
-	if (max_pos <= size / 2)
-		while (max_pos--)
-			rb(b);
-	else
-		while (max_pos++ < size)
-			rrb(b);
+    size = ft_lstsize(*b);
+    if (max_pos <= size / 2)
+    {
+        while (max_pos--)
+            rb(b);
+    }
+    else
+    {
+        while (max_pos++ < size)
+            rrb(b);
+    }
 }
 
-// スタックBの要素をAに戻す
-void	push_back_to_a(t_list **a, t_list **b, int pushed)
+void    push_back_to_a(t_list **a, t_list **b, int pushed)
 {
-	int	max_pos;
+    int    max_pos;
 
-	while (pushed--)
-	{
-		max_pos = find_max_pos(*b);
-		move_max_to_top(b, max_pos);
-		pa(a, b);
-	}
+    while (pushed--)
+    {
+        max_pos = find_max_pos(*b);
+        move_max_to_top(b, max_pos);
+        pa(a, b);
+    }
 }
+
+// //デバッグ用関数。スタックの中身を表示
+// void    print_stack(t_list *stack)
+// {
+// 	while (stack)
+// 	{
+// 		ft_putint_fd(*(int *)stack->content, 1);
+// 		ft_putchar_fd('\n', 1);
+// 		stack = stack->next;
+// 	}
+// }
 
 void	quick_sort(t_list **a, t_list **b)
 {
@@ -74,9 +87,9 @@ void	quick_sort(t_list **a, t_list **b)
 	size = ft_lstsize(*a);
 	while (size--)
 	{
-		if (*(int *)(*a)->content < median)
+		if (*(*a)->sort_index < median)
 		{
-			if (*(int *)(*a)->content < median / 2)
+			if (*(*a)->sort_index < median / 2)
 			{
 				pb(a, b);
 				rb(b);
@@ -91,4 +104,5 @@ void	quick_sort(t_list **a, t_list **b)
 	if (!is_sorted(*a))
 		quick_sort(a, b);
 	push_back_to_a(a, b, pushed);
+	// print_stack(*a);
 }

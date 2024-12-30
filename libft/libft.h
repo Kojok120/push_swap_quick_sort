@@ -6,7 +6,7 @@
 /*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:36:50 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 11:51:25 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:16:45 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	void			*content;
+	int				*sort_index;
 	struct s_list	*next;
 }					t_list;
 
@@ -39,6 +40,7 @@ void				ft_put_uint_hex_fd(unsigned int n, int fd, char format);
 int					ft_putpointer_fd(void *p, int fd);
 int					ft_printf(const char *format, ...);
 void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(void *cnt);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
