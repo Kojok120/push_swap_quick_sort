@@ -3,61 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:06:13 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 10:43:42 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:37:08 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_list **a)
+void    sort_three(t_list **a)
 {
-    int	*arr;
+    int first;
+    int second;
+    int third;
 
-    arr = (int *)malloc(sizeof(int) * 3);
-    if (!arr)
-        error_exit(a, NULL);
-    arr[0] = *(int *)(*a)->content;
-    arr[1] = *(int *)(*a)->next->content;
-    arr[2] = *(int *)(*a)->next->next->content;
-    if (arr[0] > arr[1] && arr[1] > arr[2])
+    first = *(int *)(*a)->content;
+    second = *(int *)(*a)->next->content;
+    third = *(int *)(*a)->next->next->content;
+    if (first > second && second > third)
     {
         sa(a);
         rra(a);
     }
-    else if (arr[0] > arr[1] && arr[1] < arr[2] && arr[0] < arr[2])
+    else if (first > second && first > third)
         ra(a);
-    else if (arr[0] > arr[1] && arr[1] < arr[2] && arr[0] > arr[2])
+    else if (first > second)
         sa(a);
-    else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[0] > arr[2])
-    {
-        sa(a);
-        ra(a);
-    }
-    else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[0] < arr[2])
+    else if (second > third && first > third)
         rra(a);
-    free(arr);
-}
-
-void	sort_five(t_list **a, t_list **b)
-{
-    int size;
-    int i;
-
-    size = ft_lstsize(*a);
-    i = 0;
-    while (i < size - 3)
+    else if (second > third)
     {
-        pb(a, b);
-        i++;
-    }
-    sort_three(a);
-    while (i > 0)
-    {
-        pa(a, b);
-        i--;
+        sa(a);
+        ra(a);
     }
 }
 
@@ -70,8 +48,8 @@ void    sort(t_list **a, t_list **b)
         sa(a);
     else if (size == 3)
         sort_three(a);
-    else if (size <= 5)
-        sort_five(a, b);
+    else if (size <= 10)
+        sort_small(a, b);
     else
         quick_sort(a, b);
 }

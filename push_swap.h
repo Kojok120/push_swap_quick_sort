@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:26:43 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 11:46:37 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:27:51 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		rrr(t_list **a, t_list **b);
 void		sort_three(t_list **a);
 void		sort_five(t_list **a, t_list **b);
 void		sort(t_list **a, t_list **b);
+void		sort_small(t_list **a, t_list **b);
 void		quick_sort(t_list **a, t_list **b);
 int	get_median(t_list *stack);
 

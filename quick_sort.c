@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 10:40:30 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 11:31:38 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:52:12 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// スタックBの最大値の位置を探す
 int    find_max_pos(t_list *b)
 {
     t_list    *current;
@@ -69,7 +68,7 @@ void    quick_sort(t_list **a, t_list **b)
     int        size;
     int        median;
     int        pushed;
-    
+
     median = get_median(*a);
     pushed = 0;
     size = ft_lstsize(*a);

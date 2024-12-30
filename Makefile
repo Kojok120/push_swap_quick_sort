@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+         #
+#    By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/29 10:26:56 by kokamoto          #+#    #+#              #
-#    Updated: 2024/12/29 11:46:58 by kokamoto         ###   ########.fr        #
+#    Updated: 2024/12/30 19:27:26 by kokamoto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -g -Wall -Werror -Wextra 
+CFLAGS = -g -Wall -Werror -Wextra
 
 SRCS = main.c \
 	error.c \
@@ -20,6 +20,7 @@ SRCS = main.c \
 	swap.c \
 	rotate.c \
 	reverse_rotate.c \
+	sort_small.c \
 	quick_sort.c \
 	get_median.c
 
@@ -39,7 +40,7 @@ LIBFT_SRCS = libft/ft_hexlen.c \
 	libft/ft_putunsignedint_fd.c \
 	libft/ft_putchar_fd.c \
 	libft/ft_numlen.c \
-	libft/ft_strchr_n.c 
+	libft/ft_strchr_n.c
 
 OBJS = $(SRCS:.c=.o)
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
