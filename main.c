@@ -3,74 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
+/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:06:13 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 15:17:19 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 16:37:52 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort_three(t_list **a)
+void	sort_three(t_list **a)
 {
-    int first;
-    int second;
-    int third;
+	int	first;
+	int	second;
+	int	third;
 
-    first = *(int *)(*a)->content;
-    second = *(int *)(*a)->next->content;
-    third = *(int *)(*a)->next->next->content;
-    if (first > second && second > third)
-    {
-        sa(a);
-        rra(a);
-    }
-    else if (first > second && first > third)
-        ra(a);
-    else if (first > second)
-        sa(a);
-    else if (second > third && first > third)
-        rra(a);
-    else if (second > third)
-    {
-        sa(a);
-        ra(a);
-    }
+	first = *(int *)(*a)->content;
+	second = *(int *)(*a)->next->content;
+	third = *(int *)(*a)->next->next->content;
+	if (first > second && second > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && first > third)
+		ra(a);
+	else if (first > second)
+		sa(a);
+	else if (second > third && first > third)
+		rra(a);
+	else if (second > third)
+	{
+		sa(a);
+		ra(a);
+	}
 }
 
-void    sort(t_list **a, t_list **b)
+void	sort(t_list **a, t_list **b)
 {
-    int size;
+	int	size;
 
-    size = ft_lstsize(*a);
-    if (size == 2)
-        sa(a);
-    else if (size == 3)
-        sort_three(a);
-    else if (size <= 10)
-        sort_small(a, b);
-    else
-        quick_sort(a, b);
+	size = ft_lstsize(*a);
+	if (size == 2)
+		sa(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size <= 10)
+		sort_small(a, b);
+	else
+		quick_sort(a, b);
 }
 
-void    get_sort_index(t_list *a)
+void	get_sort_index(t_list *a)
 {
-    int    *array;
+	int	*array;
 
-    if (!(array = create_array_index(a, ft_lstsize(a))))
-        error_exit(NULL, NULL);
-    sort_array_index(array, ft_lstsize(a));
-    assign_sort_index(array, a, ft_lstsize(a));
-    free(array);
+	array = create_array_index(a, ft_lstsize(a));
+	if (!array)
+		error_exit(NULL, NULL);
+	sort_array_index(array, ft_lstsize(a));
+	assign_sort_index(array, a, ft_lstsize(a));
+	free(array);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_list	*a;
-	t_list	*b;
+	t_list		*a;
+	t_list		*b;
 	long long	num;
-	int		*content;
+	int			*content;
 
 	if (argc < 2)
 		return (0);
@@ -86,10 +87,10 @@ int	main(int argc, char *argv[])
 		*content = num;
 		ft_lstadd_front(&a, ft_lstnew(content));
 	}
-    get_sort_index(a);
+	get_sort_index(a);
 	if (!is_sorted(a))
 		sort(&a, &b);
-    ft_lstclear(&a, free);
+	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);
 }
