@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:51:15 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 11:54:12 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:22:18 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	error_exit(t_list **a, t_list **b)
 	return;
 }
 
-int    is_valid_number(const char *str, long *num)
+int    is_valid_number(const char *str, long long *num)
 {
     int     i;
-    long    temp;
+    long long    temp;
 
     i = 0;
     if (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))

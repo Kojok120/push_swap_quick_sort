@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_median.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:54:49 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 01:59:34 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:55:37 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int    *create_array_median(t_list *stack, int size)
     return (array);
 }
 
-// 配列をソート
 void    sort_array_median(int *array, int size)
 {
     int    i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:06:13 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 02:19:55 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:17:19 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,23 @@ void    sort(t_list **a, t_list **b)
         quick_sort(a, b);
 }
 
+void    get_sort_index(t_list *a)
+{
+    int    *array;
+
+    if (!(array = create_array_index(a, ft_lstsize(a))))
+        error_exit(NULL, NULL);
+    sort_array_index(array, ft_lstsize(a));
+    assign_sort_index(array, a, ft_lstsize(a));
+    free(array);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list	*a;
 	t_list	*b;
-	long	num;
+	long long	num;
 	int		*content;
-    int    *array;
 
 	if (argc < 2)
 		return (0);
@@ -69,20 +79,17 @@ int	main(int argc, char *argv[])
 	while (--argc)
 	{
 		if (!is_valid_number(argv[argc], &num) || has_duplicate(a, num))
-			error_exit(&a, &b);
+			error_exit(NULL, NULL);
 		content = (int *)malloc(sizeof(int));
 		if (!content)
-			error_exit(&a, &b);
+			error_exit(NULL, NULL);
 		*content = num;
-		ft_lstadd_front(&a, ft_lstnew(content)); //lstadd_backが正しい気がする。
+		ft_lstadd_front(&a, ft_lstnew(content));
 	}
-    if (!(array = create_array_index(a, ft_lstsize(a))))
-        return (0);
-    sort_array_index(array, ft_lstsize(a));    
-    assign_sort_index(array, a, ft_lstsize(a));
+    get_sort_index(a);
 	if (!is_sorted(a))
 		sort(&a, &b);
-	ft_lstclear(&a, free);
+    ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:50:32 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 12:39:20 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:58:29 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,10 @@ void	reverse_rotate(t_list **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-
-	// 最後から2番目のノードを探す
 	second_last = *stack;
 	while (second_last->next->next != NULL)
 		second_last = second_last->next;
-
-	// 最後のノードを取得
 	last = second_last->next;
-
-	// ポインタの付け替え
 	second_last->next = NULL;
 	last->next = *stack;
 	*stack = last;

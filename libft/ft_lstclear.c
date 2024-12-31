@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:20:59 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/29 12:40:51 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:27:36 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (!lst || !del)
 		return;
-		
+
 	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;
 		del((*lst)->content);
+		del((*lst)->sort_index);
 		free(*lst);
 		*lst = tmp;
 	}

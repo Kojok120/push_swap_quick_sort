@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:36:50 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 02:16:45 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:21:52 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-long					ft_atoi(const char *str);
+long long					ft_atoi(const char *str);
 size_t				ft_strlen(const char *str);
 int					ft_numlen(long long n);
 int					ft_hexlen(unsigned long long n);

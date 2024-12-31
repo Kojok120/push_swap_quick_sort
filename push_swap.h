@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:26:43 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 01:56:20 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:17:06 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 
 void		error_exit(t_list **a, t_list **b);
-int			is_valid_number(const char *str, long *num);
+int			is_valid_number(const char *str, long long *num);
 int			has_duplicate(t_list *stack, int num);
 int			is_sorted(t_list *stack);
 void		swap(t_list **stack);

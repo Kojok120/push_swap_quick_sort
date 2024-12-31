@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assign_sort_index.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 10:39:26 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 01:54:24 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:55:23 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,4 @@ void    assign_sort_index(int *sorted_array, t_list *stack, int size)
         }
         stack = stack->next;
     }
-    // //一度確認する。
-    // while (stack)
-    // {
-    //     ft_printf("content: %d, sort_index: %d\n", *(int *)stack->content, *stack->sort_index);
-    //     stack = stack->next;
-    // }
-    
 }

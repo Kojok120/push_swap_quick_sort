@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kokamoto <kokamoto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kokamoto <kojokamo120@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 10:40:30 by kokamoto          #+#    #+#             */
-/*   Updated: 2024/12/31 02:22:34 by kokamoto         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:10:53 by kokamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,11 @@ void    push_back_to_a(t_list **a, t_list **b, int pushed)
     }
 }
 
-// //デバッグ用関数。スタックの中身を表示
-// void    print_stack(t_list *stack)
-// {
-// 	while (stack)
-// 	{
-// 		ft_putint_fd(*(int *)stack->content, 1);
-// 		ft_putchar_fd('\n', 1);
-// 		stack = stack->next;
-// 	}
-// }
+void    push_and_rotate (t_list **a, t_list **b)
+{
+    pb(a, b);
+    rb(b);
+}
 
 void	quick_sort(t_list **a, t_list **b)
 {
@@ -90,10 +85,7 @@ void	quick_sort(t_list **a, t_list **b)
 		if (*(*a)->sort_index < median)
 		{
 			if (*(*a)->sort_index < median / 2)
-			{
-				pb(a, b);
-				rb(b);
-			}
+                push_and_rotate(a, b);
 			else
 				pb(a, b);
 			pushed++;
@@ -104,5 +96,4 @@ void	quick_sort(t_list **a, t_list **b)
 	if (!is_sorted(*a))
 		quick_sort(a, b);
 	push_back_to_a(a, b, pushed);
-	// print_stack(*a);
 }
